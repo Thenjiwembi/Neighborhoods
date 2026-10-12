@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Find the independent spaces, people and places that make your neighbourhood feel like home." />
+    <title>Neighborhoods — Find your people</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Neighborhoods home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="brand-name">neighborhoods</span>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a class="nav-link active" href="#directory">Explore</a>
+          <a class="nav-link" href="#about">How it works</a>
+          <a class="nav-link" href="#contact">Share a place</a>
+        </nav>
+        <button class="saved-link" id="saved-toggle" type="button" aria-pressed="false">
+          <span class="heart-icon" aria-hidden="true">♡</span>
+          <span>Saved</span>
+          <span class="saved-count" id="saved-count">0</span>
+        </button>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> A living guide to local life</p>
+            <h1 id="hero-title">Find your <em>people.</em><br />Find your place.</h1>
+            <p class="hero-description">A thoughtful directory of the independent spaces, gatherings and good people that make a neighbourhood feel like home.</p>
+            <a class="text-link" href="#directory">Start exploring <span aria-hidden="true">↘</span></a>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="sun-disc"></div>
+            <div class="art-line art-line-one"></div>
+            <div class="art-line art-line-two"></div>
+            <div class="art-card art-card-one"><span class="mini-symbol">✳</span><span>Local<br />stories</span></div>
+            <div class="art-card art-card-two"><span class="mini-symbol">↗</span><span>Good<br />neighbours</span></div>
+            <div class="art-note">made for<br /><strong>here</strong></div>
+          </div>
+        </section>
+
+        <section class="directory-section" id="directory" aria-labelledby="directory-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">The directory</p>
+              <h2 id="directory-title">Small places,<br /><em>big energy.</em></h2>
+            </div>
+            <p class="section-intro">Skip the algorithm. Start with the places your neighbours already love.</p>
+          </div>
+
+          <div class="directory-layout">
+            <aside class="filter-panel" aria-label="Directory filters">
+              <div class="filter-panel-header">
+                <span class="filter-label">Refine your search</span>
+                <button class="clear-button" id="clear-filters" type="button">Clear all</button>
+              </div>
+              <div class="filter-group search-group">
+                <label for="search-input">Search</label>
+                <div class="search-wrap">
+                  <span class="search-icon" aria-hidden="true">⌕</span>
+                  <input id="search-input" type="search" placeholder="Try “ceramics” or “slow”" autocomplete="off" />
+                  <kbd>/</kbd>
+                </div>
+              </div>
+              <div class="filter-group">
+                <span class="filter-group-title">Category</span>
+                <div class="filter-options" id="category-options"></div>
+              </div>
+              <div class="filter-group">
+                <span class="filter-group-title">Location</span>
+                <div class="filter-options" id="location-options"></div>
+              </div>
+              <div class="filter-footnote"><span class="footnote-star">✳</span> Every listing is independently verified by our community.</div>
+            </aside>
+
+            <div class="results-column">
+              <div class="results-toolbar">
+                <p id="results-summary" aria-live="polite">Loading listings…</p>
+                <button class="sort-button" id="sort-toggle" type="button">Recently added <span aria-hidden="true">↕</span></button>
+              </div>
+              <div class="results-region" id="results-region" aria-live="polite" aria-busy="true">
+                <div class="loading-grid" aria-label="Loading listings">
+                  <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section" id="about" aria-labelledby="about-title">
+          <div class="about-badge" aria-hidden="true">✳</div>
+          <div>
+            <p class="eyebrow">Why Neighborhoods?</p>
+            <h2 id="about-title">More than a list.<br /><em>A little local magic.</em></h2>
+          </div>
+          <div class="about-copy">
+            <p>We believe the best recommendations still travel by word of mouth. Neighborhoods is a growing collection of the places that give a city its texture — gathered slowly, with care.</p>
+            <a class="text-link" href="#contact">Know somewhere good? <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+
+        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+          <div class="contact-heading">
+            <p class="eyebrow">Add to the map</p>
+            <h2 id="contact-title">Know a place<br />we should <em>meet?</em></h2>
+            <p>Tell us about the spot that makes your corner of the city feel more like yours.</p>
+          </div>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-field">
+              <label for="name">Your name <span>*</span></label>
+              <input id="name" name="name" type="text" placeholder="e.g. Jamie Chen" autocomplete="name" aria-describedby="name-error" />
+              <small class="field-error" id="name-error"></small>
+            </div>
+            <div class="form-field">
+              <label for="email">Email address <span>*</span></label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="email-error" />
+              <small class="field-error" id="email-error"></small>
+            </div>
+            <div class="form-field full-field">
+              <label for="recommendation">The place you’re recommending <span>*</span></label>
+              <input id="recommendation" name="recommendation" type="text" placeholder="Name, neighbourhood, and what makes it special" aria-describedby="recommendation-error" />
+              <small class="field-error" id="recommendation-error"></small>
+            </div>
+            <div class="form-field full-field">
+              <label for="message">A note for the neighbourhood team <span>*</span></label>
+              <textarea id="message" name="message" rows="4" placeholder="Give us the good stuff…" aria-describedby="message-error"></textarea>
+              <small class="field-error" id="message-error"></small>
+            </div>
+            <button class="submit-button" type="submit">Send recommendation <span aria-hidden="true">↗</span></button>
+            <p class="form-status" id="form-status" role="status"></p>
+          </form>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span> neighborhoods</div>
+        <p>Made for the curious, by the local.</p>
+        <p class="footer-meta">© 2024 Neighborhoods</p>
+      </footer>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
